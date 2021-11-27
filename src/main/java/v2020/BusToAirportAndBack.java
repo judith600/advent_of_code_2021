@@ -1,23 +1,21 @@
 package v2020;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class BusToAirportAndBack {
 
     private int personalDeparture;
-    private ArrayList<String> busDepartures;
+    private Integer finalBusId;
     private Integer finalDifference = null;
 
     public int doWork(String input) {
-        getBusDepartures(input).forEach(number -> {
-            int newDifference = getDifference(number);
-            assignFinalDifferenceIfSmaller(newDifference);
+        getBusDepartures(input).forEach(busId -> {
+            int newDifference = getDifference(busId);
+            assignBestBusIdIfSmaller(newDifference, busId);
         });
-        return finalDifference;
+        return finalBusId;
     }
 
     public List<Integer> getBusDepartures(String input) {
@@ -29,14 +27,24 @@ public class BusToAirportAndBack {
                 .collect(Collectors.toList());
     }
 
-    public int getDifference(int number) {
-        return personalDeparture % number;
+    public int getDifference(int busId) {
+        int moduloRest = personalDeparture % busId;
+        return busId - moduloRest;
     }
 
-    public void assignFinalDifferenceIfSmaller(int number) {
+    public void assignBestBusIdIfSmaller(int number, int busId) {
         if (finalDifference == null || finalDifference > number) {
             finalDifference = number;
+            finalBusId = busId;
         }
+    }
+
+    public Integer getFinalDifference() {
+        return finalDifference;
+    }
+
+    public void setPersonalDeparture(int number) {
+        personalDeparture = number;
     }
 
 }
