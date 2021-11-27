@@ -1,4 +1,5 @@
 target/
+.idea
 pom.xml.tag
 release.properties
 # https://github.com/takari/maven-wrapper#usage-without-binary-jar
