@@ -31,7 +31,19 @@ public class SonarSweep {
 			if (i == 0) {
 				// do nothing bc first element
 			} else if (formattedInput.get(i) > formattedInput.get(i - 1)) {
-				System.out.println("previous number: " + formattedInput.get(i - 1) + " - current number: " + formattedInput.get(i));
+//				System.out.println("previous number: " + formattedInput.get(i - 1) + " - current number: " + formattedInput.get(i));
+				biggerNumberCount++;
+			}
+		}
+		return biggerNumberCount;
+	}
+
+	public int doSlidingWindow(List<Integer> input) {
+		int biggerNumberCount = 0;
+		for(int i = 0; i < input.size() - 3; i++) {
+			int window = input.get(i) + input.get(i + 1) + input.get(i + 2);
+			int nextWindow = input.get(i+1) + input.get(i+2) + input.get(i+3);
+			if (nextWindow > window) {
 				biggerNumberCount++;
 			}
 		}
