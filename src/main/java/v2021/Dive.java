@@ -6,7 +6,7 @@ import java.util.List;
 public class Dive {
 
     public List<String> getInput() {
-        String rawInput = Util.getRawInput("dive.txt");
+        String rawInput = Util.getInputAsCommaSeparatedString("dive.txt");
         return Arrays.asList(rawInput.split(","));
     }
 
