@@ -3,10 +3,12 @@ package v2021;
 import java.util.Arrays;
 import java.util.List;
 
+import common.ReadInputUtil;
+
 public class Dive {
 
     public List<String> getInput() {
-        String rawInput = Util.getInputAsCommaSeparatedString("dive.txt");
+        String rawInput = ReadInputUtil.getInputAsCommaSeparatedString("dive.txt");
         return Arrays.asList(rawInput.split(","));
     }
 

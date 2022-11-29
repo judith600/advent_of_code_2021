@@ -1,4 +1,4 @@
-package v2021;
+package common;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,10 +10,10 @@ import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
 
-public class Util {
+public class ReadInputUtil {
 
     public static String getInputAsCommaSeparatedString(String fileName) {
-        InputStream resourceAsStream = Util.class.getClassLoader().getResourceAsStream(fileName);
+        InputStream resourceAsStream = ReadInputUtil.class.getClassLoader().getResourceAsStream(fileName);
         assert resourceAsStream != null;
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(resourceAsStream));
         StringBuilder stringBuilder = new StringBuilder();

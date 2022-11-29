@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import common.ReadInputUtil;
+
 public class GiantSquid {
 
     private List<Integer> drawInput;
@@ -13,13 +15,13 @@ public class GiantSquid {
     }
 
     public void setDrawInput(String fileName) {
-        List<String> lines = Util.readLines(fileName);
+        List<String> lines = ReadInputUtil.readLines(fileName);
         drawInput = Arrays.stream(lines.get(0).split(","))
                 .map(Integer::valueOf).collect(Collectors.toList());
     }
 
     public void setBingoFields(String fileName) {
-        List<String> inputAsLineList = Util.readLines(fileName);
+        List<String> inputAsLineList = ReadInputUtil.readLines(fileName);
         assert inputAsLineList != null;
         inputAsLineList.removeIf(line -> line.trim().isEmpty());
         System.out.println(inputAsLineList.get(0));
